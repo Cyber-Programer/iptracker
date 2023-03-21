@@ -8,7 +8,7 @@ def pnt():
 def banner():
     banner='''
     333333333333333333333333333333333333333333
-    3 ❤        😎HALAL-ASHACKER😎         ❤  3                   
+    3 ❤            😎2rootv3😎          ❤  3                   
     3                                        3
     3                Track ip                3     
     3                                        3
