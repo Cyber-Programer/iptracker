@@ -1,14 +1,24 @@
+try:
+    from termcolor import colored
+except ModuleNotFoundError:
+    import os
+    os.system('pip install termcolor')
+    from termcolor import colored
+try:
+    import requests
+except ModuleNotFoundError:
+    import os
+    os.system('pip install requests')
 import requests as r
-from termcolor import colored
 
 def pnt():
     print(colored('''
-        1)Track target ip
-        2)Track your ip
-        ''', 'green'))
+    1)Track target ip
+    2)Track your ip
+    ''', 'green'))
 
 def banner():
-    banner=colored('''
+    banner = colored('''
     333333333333333333333333333333333333333333
     3 ❤            😎2rootv3😎            ❤  3                   
     3                                        3
@@ -22,18 +32,18 @@ def banner():
 
 banner()
 pnt()
-x=int(input(colored("Enter your option: ", 'yellow')))
-if x==1:
+
+x = int(input(colored("Enter your option: ", 'yellow')))
+if x == 1:
     def targetip():
         api = "44e830b757c94946814b5811fec0eb4e"
         print(colored("Enter your target ip", 'yellow'))
-        ip =input(colored('=> ', 'green'))  # Example public IP address
-
+        ip = input(colored('=> ', 'green'))
         url = f'https://ipgeolocation.abstractapi.com/v1/?api_key={api}&&ip_address={ip}'
 
         response = r.get(url)
-        #print(response)
-        show=response.json()
+        show = response.json()
+
         print(colored(f"\nip_address: {show['ip_address']}", 'cyan'))
         print(colored(f"city: {show['city']}", 'cyan'))
         print(colored(f"city_geoname_id: {show['city_geoname_id']}", 'cyan'))
@@ -51,21 +61,24 @@ if x==1:
         print(colored(f"longitude: {show['longitude']}", 'cyan'))
         print(colored(f"latitude : {show['latitude']}", 'cyan'))
         print(colored(f"security: {show['security']}", 'cyan'))
-        timezon=show['timezone']
-        print(colored(f"Timezone: {timezon['name']}", 'cyan'))
-        print(colored(f"abbreviation: {timezon['abbreviation']}", 'cyan'))
-        print(colored(f"gmt_offset : {timezon['gmt_offset']}", 'cyan'))
-        print(colored(f"current_time: {timezon['current_time']}", 'cyan'))
-        print(colored(f"is_dst : {timezon['is_dst']}", 'cyan'))
+
+        timezone = show['timezone']
+        print(colored(f"Timezone: {timezone['name']}", 'cyan'))
+        print(colored(f"abbreviation: {timezone['abbreviation']}", 'cyan'))
+        print(colored(f"gmt_offset : {timezone['gmt_offset']}", 'cyan'))
+        print(colored(f"current_time: {timezone['current_time']}", 'cyan'))
+        print(colored(f"is_dst : {timezone['is_dst']}", 'cyan'))
+
     targetip()
-elif x==2:
-    print(colored("your Ip was tracked...........",'yellow'))
-    def yourip():
+elif x == 2:
+    print(colored("your ip wass tracked............",'yellow'))
+    def ip():
         api = "44e830b757c94946814b5811fec0eb4e"
         url = f'https://ipgeolocation.abstractapi.com/v1/?api_key={api}'
+
         response = r.get(url)
-        #print(response)
-        show=response.json()
+        show = response.json()
+
         print(colored(f"\nip_address: {show['ip_address']}", 'cyan'))
         print(colored(f"city: {show['city']}", 'cyan'))
         print(colored(f"city_geoname_id: {show['city_geoname_id']}", 'cyan'))
@@ -83,10 +96,11 @@ elif x==2:
         print(colored(f"longitude: {show['longitude']}", 'cyan'))
         print(colored(f"latitude : {show['latitude']}", 'cyan'))
         print(colored(f"security: {show['security']}", 'cyan'))
-        timezon=show['timezone']
-        print(colored(f"Timezone: {timezon['name']}", 'cyan'))
-        print(colored(f"abbreviation: {timezon['abbreviation']}", 'cyan'))
-        print(colored(f"gmt_offset : {timezon['gmt_offset']}", 'cyan'))
-        print(colored(f"current_time: {timezon['current_time']}", 'cyan'))
-        print(colored(f"is_dst : {timezon['is_dst']}", 'cyan'))
-    yourip()
+
+        timezone = show['timezone']
+        print(colored(f"Timezone: {timezone['name']}", 'cyan'))
+        print(colored(f"abbreviation: {timezone['abbreviation']}", 'cyan'))
+        print(colored(f"gmt_offset : {timezone['gmt_offset']}", 'cyan'))
+        print(colored(f"current_time: {timezone['current_time']}", 'cyan'))
+        print(colored(f"is_dst : {timezone['is_dst']}", 'cyan'))
+    ip()
